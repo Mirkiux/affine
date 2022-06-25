@@ -37,7 +37,7 @@ dates = pa.date_range("1/1/1983", "10/1/2009", freq="MS").to_pydatetime()
 #dates = pa.date_range("6/1/1979", "12/1/2012", freq="MS").to_pydatetime()
 
 # limit dates of yields and take logs
-mod_yc_data = np.log(mod_yc_data.ix[dates])
+mod_yc_data = np.log(mod_yc_data.loc[dates])
 
 # Maturities
 mats = [12, 24, 36, 60, 84, 120]

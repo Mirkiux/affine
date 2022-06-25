@@ -63,8 +63,8 @@ for folder, subdirs, files in os.walk(code_cdir):
             with open(os.path.join(folder, os.path.splitext(fil)[0]), "w") as f:
                 f.write(cython_file)
 
-extensions = [Extension('affine.model.Cython_extensions',
-                       ['affine/extensions/Cython_extensions.pyx'])]
+extensions = [Extension('affine_source.model.Cython_extensions',
+                       ['affine_source/extensions/Cython_extensions.pyx'])]
 
 setup(
     name='affine',
@@ -74,7 +74,7 @@ setup(
     description='This package offers a solver class for affine ' \
                   + 'term structure models.',
     author_email="bartbkr@gmail.com",
-    use_2to3=False,
+    use_2to3=True,
     ext_modules=cythonize(extensions, language_level = "3"),
     platforms='any',
     include_dirs=[numpy.get_include()],

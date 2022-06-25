@@ -315,7 +315,7 @@ def success_mail(passwd):
     """
     Function to run upon successful run
     """
-    print "Trying to send email"
+    print( "Trying to send email")
     server = smtplib.SMTP('smtp.gmail.com:587')
     server.starttls()
     server.login("bartbkr", passwd)

@@ -20,7 +20,7 @@ from scipy import optimize
 from affine.model.util import transform_var1
 
 try:
-    from affine.extensions import Cython_extensions
+    from . import Cython_extensions
     avail_fast_gen_pred = True
 except:
     avail_fast_gen_pred = False
