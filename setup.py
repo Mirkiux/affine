@@ -74,9 +74,9 @@ setup(
     description='This package offers a solver class for affine ' \
                   + 'term structure models.',
     author_email="bartbkr@gmail.com",
-    use_2to3=True,
-    ext_modules=cythonize(extensions),
+    use_2to3=False,
+    ext_modules=cythonize(extensions, language_level = "3"),
     platforms='any',
     include_dirs=[numpy.get_include()],
-    zip_safe=False,
+    zip_safe=False
 )

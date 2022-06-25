@@ -17,15 +17,16 @@ from statsmodels.tools.decorators import cache_readonly
 from statsmodels.tools.numdiff import approx_hess, approx_fprime
 from statsmodels.tsa.statespace.api import MLEModel
 from scipy import optimize
-from util import transform_var1
+from affine.model.util import transform_var1
 
 try:
-    from . import Cython_extensions
+    from affine.extensions import Cython_extensions
     avail_fast_gen_pred = True
 except:
     avail_fast_gen_pred = False
 
 opt_gen_pred_coef_funcs = {
+    np.float32 : Cython_extensions.sgen_pred_coef,
     np.float32 : Cython_extensions.sgen_pred_coef,
     np.float64 : Cython_extensions.dgen_pred_coef,
     np.complex64 : Cython_extensions.cgen_pred_coef,

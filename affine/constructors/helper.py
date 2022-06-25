@@ -12,7 +12,7 @@ import smtplib
 from operator import itemgetter
 from statsmodels.tsa.api import VAR
 from statsmodels.regression.linear_model import OLS
-from affine.model.affine import Affine
+from build.model.affine import Affine
 
 def make_nomask(dim):
     marray = ma.zeros(dim)
