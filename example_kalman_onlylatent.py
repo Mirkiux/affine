@@ -92,3 +92,8 @@ for numb, element in enumerate(guess_params):
 bsr_solve = mod_init.solve(guess_params=guess_params, method="kalman",
                            alg="bfgs", maxfev=10000000, maxiter=10000000,
                            ftol=0.1, xtol=0.1)
+
+if (bsr_solve.model.adjusted):
+    print("el modelo convergió :)" )
+else:
+    print("el modelo no convergió :(" )
