@@ -83,10 +83,11 @@ guess_length = mod_init.guess_length
 
 guess_params = [0] * guess_length
 
-np.random.seed(100)
+#np.random.seed(100)
+np.random.seed(3495)
 
 for numb, element in enumerate(guess_params):
-    element = 0.001
+    element = 0.002
     guess_params[numb] = np.abs(element * np.random.random())
 
 bsr_solve = mod_init.solve(guess_params=guess_params, method="kalman",

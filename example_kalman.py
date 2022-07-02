@@ -104,10 +104,10 @@ mats = [4, 8, 12, 20, 28, 40]
 del mod_yc_data['trcr_m1']
 
 macro_data_use = macro_data.dropna()[['price_pca1', 'output_pca1']]
-macro_data_use = macro_data_use.ix[mod_yc_data.index]
+macro_data_use = macro_data_use.loc[mod_yc_data.index]
 
-yc_data_use = mod_yc_data.ix[macro_data_use.index[k_ar:]]
-rf_rate = rf_rate.ix[macro_data_use.index]
+yc_data_use = mod_yc_data.loc[macro_data_use.index[k_ar:]]
+rf_rate = rf_rate.loc[macro_data_use.index]
 
 #align number of obs between yields and grab rf rate
 #mth_only = to_mth(mod_yc_data)
@@ -147,9 +147,10 @@ sigma_e[:, :] = ma.masked
 sigma_e[:, :] = ma.nomask
 sigma_e[-latent:, -latent:] = np.identity(latent)
 #sigma_e[-latent:, -latent:] = ma.masked
+print(macro_data_use)
 
 delta_0_e, delta_1_e, mu_e, phi_e, sigma_e = pass_ols(var_data=macro_data_use,
-                                                      freq="Q", lat=latent,
+                                                      freq="M", lat=latent,
                                                       k_ar=k_ar, neqs=neqs,
                                                       delta_0=delta_0_e,
                                                       delta_1=delta_1_e,
